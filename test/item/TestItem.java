@@ -5,6 +5,7 @@
  */
 package item;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Test;
@@ -51,7 +52,21 @@ public class TestItem {
             System.out.println(ex.getMessage());
             //Logger.getLogger(TestItem.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+    }
+    
+    @Test(expected=IndexOutOfBoundsException.class)
+    public void testIndexOutOfBoundsException() {
+        ArrayList emptyList = new ArrayList();
+        Object o = emptyList.get(0);
+    }
+    
+    @Test(expected=Exception.class)
+    public void test2() { 
+            Brick br = new Brick(2, "плоский");             
+            Box b = new Box(5, 0.1);
+            
+            b.addItem(br);
+            b.addItem(br);               
     }
     
 }
