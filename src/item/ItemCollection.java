@@ -37,7 +37,8 @@ public abstract class ItemCollection extends Item implements Iterable <Item> {
     public boolean addItem(Item it) throws Exception{
         if (it.isItemPlaced()){
             throw new ItemAlreadyPlacedException("нельзя добавлять один и тот же предмет в разные контейнеры");
-        } else {
+        } else {            
+            it.setItemPlaced(true);
             return itemCollection.add(it);
         }
     }

@@ -5,9 +5,6 @@
  */
 package item;
 
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -22,7 +19,8 @@ public class TestItem {
         try {
             Brick a = new Brick(2, "плоский"); 
             Brick b = new Brick(2, "плоский"); 
-            Brick c = new Brick(2, "плоский"); 
+            Brick c = new Brick(2, "плоский");            
+            Brick cc = new Brick(2, "плоский"); 
 
             Bag d = new Bag(5, 0.1);
             Box e = new Box(10, 0.5);
@@ -39,34 +37,27 @@ public class TestItem {
             e.addItem(d);
             System.out.println(e.getWeigtItem());
             assertEquals(e.getWeigtItem(),6.6,0);
-            
+                        
             Ream f = new Ream(15);
             
             f.addItem(e);
-            f.addItem(c);
-            assertEquals(f.removeItem(), c);
-            
-            f.addItem(d);
+            f.addItem(cc);
+            assertEquals(f.removeItem(), cc);
             
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
             //Logger.getLogger(TestItem.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    @Test(expected=IndexOutOfBoundsException.class)
-    public void testIndexOutOfBoundsException() {
-        ArrayList emptyList = new ArrayList();
-        Object o = emptyList.get(0);
-    }
-    
+        
     @Test(expected=Exception.class)
-    public void test2() { 
-            Brick br = new Brick(2, "плоский");             
+    public void test2() throws Exception {                     
+            Brick br = new Brick(2, "плоский");
             Box b = new Box(5, 0.1);
             
             b.addItem(br);
-            b.addItem(br);               
+            b.addItem(br);
+            b.addItem(br);         
     }
     
 }

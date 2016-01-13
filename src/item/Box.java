@@ -8,6 +8,8 @@ package item;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,7 +33,11 @@ public class Box extends ItemCollection{
     public Item removeItem () throws Exception{    
         if (!itemList.isEmpty()) {
         Random random = new Random();
-        return itemList.remove(random.nextInt(itemList.size()));
+        int i = random.nextInt(itemList.size());
+        //itemList.
+        Item it = itemList.remove(i);
+        it.setItemPlaced(true);
+        return it;
         } else {
             throw new ItemStoreException("коробка пуста");
         }
@@ -57,7 +63,7 @@ public class Box extends ItemCollection{
         else { throw new ItemStoreException("превышение максимального веса коробки");
         } //To change body of generated methods, choose Tools | Templates.
     }
-    
+        
     public void openBox() {
         this.isClose = false;
     }

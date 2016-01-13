@@ -1,3 +1,5 @@
 Manifest-Version: 1.0
+Main-Class: item.Main
+Class-Path: 
 X-COMMENT: Main-Class will be added automatically by build
 

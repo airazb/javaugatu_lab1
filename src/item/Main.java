@@ -56,7 +56,8 @@ public class Main {
         try { 
             System.out.println( bag.addItem(br1) );
         } catch (Exception ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
+            //Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println("-1-----------");
         System.out.println(bag.findItemByName("[кирпич 3]"));
